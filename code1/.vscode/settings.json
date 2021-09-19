@@ -1,0 +1,7 @@
+{
+    "editor.mouseWheelZoom": true,
+    "workbench.colorTheme": "Dracula Soft",
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}
