@@ -6,22 +6,32 @@
 #define elf else if
 typedef unsigned long long ll;
 using namespace std;
-int y,n,k,s,t;
+int y, n, k, s, t;
 int main()
 {
 	fr("bmarket.inp");
 	fw("bmarket.out");
 
 	cin >> y >> k >> n;
-	if(y>=n || n == 0)
+	if (y >= n)
 		cout << -1;
-	else{
-		s = ((n / k) * k) - y;
-		t = __gcd(s, k);
-		for (t; t <= s; t += k)
+	else
+	{
+		for (n; n >= k; n--)
 		{
-			cout << t << " ";
+			if (n % k == 0)
+			{
+				n -= y;
+				break;
+			}
 		}
+		if(n<=0)
+			cout << -1;
+			else{
+				int t = __gcd(n, k);
+				for(t;t<=n;t+=k)
+					cout << t << " ";
+			}
 	}
 	return 0;
 }

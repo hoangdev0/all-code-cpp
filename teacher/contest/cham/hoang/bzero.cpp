@@ -17,7 +17,7 @@ int main()
 		if(i%25 ==0)
 		{
 			int x = i;
-			while(x == 1)
+			while(x % 5 == 0)
 			{
 				x /= 5;
 				d++;
@@ -25,5 +25,6 @@ int main()
 		}else
 			d++;
 	}
+	cout << d;
 	return 0;
 }

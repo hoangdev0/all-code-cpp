@@ -6,8 +6,8 @@
 #define elf else if
 typedef unsigned long long ll;
 using namespace std;
-int m(1), x, n,a[N];
-int lcm(int a, int b) 
+long long m(1), x, n,a[N];
+long long lcm(long long a, long long b) 
 {
 	return (a * b / (__gcd(a, b))); 
 }

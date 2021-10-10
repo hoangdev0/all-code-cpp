@@ -14,16 +14,19 @@ int main()
 	cin >> n;
 	For(i,5,n,5)
 	{
+		cout << i;
 		if(i%25 ==0)
 		{
 			int x = i;
-			while(x == 1)
+			while(x % 5 == 0)
 			{
 				x /= 5;
 				d++;
 			}
 		}else
 			d++;
+		cout << " " << d << endl;
 	}
+	cout << d;
 	return 0;
 }
