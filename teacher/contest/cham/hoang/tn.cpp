@@ -6,24 +6,23 @@
 #define elf else if
 typedef unsigned long long ll;
 using namespace std;
-int n,d(0);
+int m(1), x, n,a[N];
+int lcm(int a, int b) 
+{
+	return (a * b / (__gcd(a, b))); 
+}
 int main()
 {
-	fr("bzero.inp");
-	fw("bzero.out");
+	fr("tn.inp");
+	fw("tn.out");
 	cin >> n;
-	For(i,5,n,5)
+	For(i, 1, n, 1)
 	{
-		if(i%25 ==0)
-		{
-			int x = i;
-			while(x == 1)
-			{
-				x /= 5;
-				d++;
-			}
-		}else
-			d++;
+		cin >> a[i];
+		m = lcm(m, a[i]);
 	}
+	cout << m << endl;
+	For(i, 1, n, 1)
+		cout << m / a[i] << " ";
 	return 0;
 }
