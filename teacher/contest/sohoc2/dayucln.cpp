@@ -16,14 +16,17 @@ int main()
 	fr("dayucln.inp");
 	fw("dayucln.out");
 
-	cin >> n;
-	For(i,0,n-1,1) cin >> a[i];
-	b[0] = a[0];
-	b[n] = a[n-1];
-	For(i,1,n-1,1)
+	cin >> x;
+	For(i,1,x,1)
 	{
-		b[i] = lcm(a[i], a[i - 1]);
+		cin >> n;
+		For(i,0,n-1,1) cin >> a[i];
+		b[0] = a[0];
+		b[n] = a[n-1];
+		For(i,1,n-1,1) b[i] = lcm(a[i], a[i - 1]);
+		
+		For(i, 0, n, 1) cout << b[i] << " ";
+		cout << '\n';
 	}
-	For(i, 0, n, 1) cout << b[i] << " ";
 	return 0;
 }
