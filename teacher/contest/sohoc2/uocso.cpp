@@ -7,7 +7,7 @@
 typedef unsigned long long ll;
 using namespace std;
 int n,a,b;
-void nt(int n)
+void nt(long long n)
 {
 	int d = 2, i;
 	for (i = 2; i * i <= n; i++)
