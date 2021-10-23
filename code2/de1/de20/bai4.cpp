@@ -6,31 +6,31 @@
 #define elf else if
 typedef unsigned long long ll;
 using namespace std;
-int n,d(0),t;
-string s,s1,s2;
+const int N = 1e6 + 5;
+int n, r,a[N],t,d(0);
 int main()
 {
-	fr("coding.inp");
-	fw("coding.out");
+	fr("bai4.inp");
+	fw("bai4.out");
 
-	getline(cin, s);
-	t = s.size() - 1;
-	for (int i = t; i >= 0;i--)
+	cin >> n >> r;
+	For(i, 1, n, 1)
+		cin >>a[i];
+	For(i, 1, n, 1)  
+	if (a[i] - a[1] >= r)
 	{
-		if(s[i]=='1')
+		t = i;
+		break;
+	}
+	
+	For(i,1,t,1)
+	{
+		For(j, t + 1, n, 1)
 		{
-			d += pow(2, t - i);
+			if(a[j]-a[i] >= r)
+				d++;
 		}
 	}
-	d *= 17;
-	while(d>0)
-	{
-		if(d%2==0)
-			s1 += '0';
-		else
-			s1 += '1';
-		d /= 2;
-	}
-	cout << s1;
+	cout << d;
 	return 0;
 }

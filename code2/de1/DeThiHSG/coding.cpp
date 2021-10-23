@@ -6,27 +6,32 @@
 #define elf else if
 typedef unsigned long long ll;
 using namespace std;
-int n,i(1000),j(1000);
+int n,t,x(0);
+ll d(0);
+string s,s1,s2;
 int main()
 {
-	fr("snn.inp");
-	fw("snn.out");
-	cin >> n;
-	for (int x = 2; x * x <= n;x++)
+	fr("coding.inp");
+	fw("coding.out");
+
+	cin >> s;
+	t = s.size() - 1;
+
+	for (int i = t; i >= 0;i--)
 	{
-		if(n%x==0)
-		{
-			if(i*10+j > x*10+(n/x)) 
-			{
-				i = x;
-				j = n / x;
-			}
-		}
+		d += ((int)s[i]-48) * pow(2, x);
+		x++;
 	}
-	if(i==1000&&j==1000)
-		cout << -1;
-		else{
-			cout << i << j;
-		}
+	// cout << d << endl;
+	d *= 17;
+	while(d>0)
+	{
+		if(d%2==1)
+			s1 += '1';
+		else
+			s1 += '0';
+		d /= 2;
+	}
+	cout << s1;
 	return 0;
 }
