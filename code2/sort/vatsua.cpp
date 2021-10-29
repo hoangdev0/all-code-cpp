@@ -5,24 +5,27 @@
 // #define Forc(value, begin, end, up) for (int value = begin; value * value <= end; value += up)
 // #define Fort(value, begin, end, up) for (int value = begin; value >= end; value -= up)
 #define elf else if
-typedef unsigned long long ll;
-// const int N =1e6+5;
 using namespace std;
-string s;
+typedef unsigned long long ll;
+const int N = 1e6 + 5;
+int n, a[N], s(0);
+bool cm(int a, int b)
+{
+	return a > b;
+}
 int main()
 {
-	// fr("bai1.inp");
-	// fw("bai1.out");
+	fr("vatsua.inp");
+	fw("vatsua.out");
 
-	cin >> s;
-	while(s.find('A') != -1 || s.find('a') != -1)
+	cin >> n;
+	For(i, 0, n - 1, 1) cin >> a[i];
+	sort(a, a + n, cm);
+	For(i, 0, n - 1, 1)
 	{
-		int i;
-		if (s.find('A')!= -1)
-			i = s.find('A');
-		else
-			i = s.find('a');
-		s.erase(i, 1);
+		s += a[i] - i;
+		if (a[i] - i == 0)
+			break;
 	}
 	cout << s;
 	return 0;

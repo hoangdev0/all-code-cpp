@@ -5,24 +5,34 @@
 // #define Forc(value, begin, end, up) for (int value = begin; value * value <= end; value += up)
 // #define Fort(value, begin, end, up) for (int value = begin; value >= end; value -= up)
 #define elf else if
-typedef unsigned long long ll;
-// const int N =1e6+5;
 using namespace std;
-string s,s1,t;
-ll n(0);
-int l,x;
+typedef unsigned long long ll;
+const int N = 1e6 + 5;
+int a[N];
+void sangnt()
+{
+	fill(a + 1, a + N + 1, true);
+	for (int i = 2; i * i <= N; i++)
+		if (a[i])
+			for (int j = 2 * i; j <= N; j += i)
+				a[j] = false;
+}
 int main()
 {
 	// fr(".inp");
 	// fw(".out");
-	cin >> s;
-	l = s.length() - 1;
-	For(i,0,l,1)
-	{
-		if(s[i] >= 'A' && s[i] <= 'F') n += (int)(s[i]-55)*pow(16,l-i);
-		else
-			n += (int)(s[i] - 48) * pow(16, l - i);
-	}
-	cout << n;
+	fill(a + 1, a + N + 1, 0);
+	int i = 2;
+	for (i; i <= n; i++)
+		if (n % i == 0)
+			while (n % i == 0)
+			{
+				n /= i;
+				a[i]++;
+			}
+	for (int j = 2; j < i; j++)
+		if (a[j] > 0)
+			cout << j << " ^ " << a[j] << " * ";
+
 	return 0;
 }

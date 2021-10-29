@@ -27,9 +27,9 @@ int main()
 	while(d>0)
 	{
 		if(d%2==1)
-			s1 += '1';
+			s1 = '1' + s1;
 		else
-			s1 += '0';
+			s1 = '0' + s1;
 		d /= 2;
 	}
 	cout << s1;

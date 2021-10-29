@@ -18,6 +18,7 @@ int main()
 	{
 		s1 = s + " " + s1;
 	}
+	s1.erase(s1.size() - 1, 1);
 	cout << s1;
 	return 0;
 }

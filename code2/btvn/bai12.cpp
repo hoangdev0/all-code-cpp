@@ -8,14 +8,15 @@
 typedef unsigned long long ll;
 using namespace std;
 const int N =1e2+50;
-ll d(0);
-string s;
+ll d(0),d1(0);
+string s,s1;
 int main()
 {
 	// fr("bai12.inp");
 	// fw("bai12.out");
-	cin >> s;
+	cin >> s >> s1;
 	For(i, 0, s.size() - 1,1) d = d * 10 + ((int)s[i] - 48);
-	cout << d;
+	For(i, 0, s1.size() - 1,1) d1 = d1 * 10 + ((int)s1[i] - 48);
+	cout << d + d1;
 	return 0;
 }

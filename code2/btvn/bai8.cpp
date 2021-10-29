@@ -14,10 +14,10 @@ int main()
 	fr("bai8.inp");
 	fw("bai8.out");
 	getline(cin, s);
-	while(s[s.size()-1] == ' ')
-		s.erase(s.size()-1, 1);
 	while(s[0] == ' ')
 		s.erase(0, 1);
+	while(s[s.size()-1] == ' ')
+		s.erase(s.size()-1, 1);
 	while (s.find("  ") != -1)
 	{
 		s.erase(s.find("  "), 1);

@@ -4,13 +4,10 @@
 #define For(value, begin, end, up) for (int value = begin; value <= end; value += up)
 // #define Forc(value, begin, end, up) for (int value = begin; value * value <= end; value += up)
 // #define Fort(value, begin, end, up) for (int value = begin; value >= end; value -= up)
-// #define nhap(i, t, n, b)       \
-	for (int i = t; <= n; i++) \
-		cin >> b[i];
 #define elf else if
+using namespace std;
 typedef unsigned long long ll;
 // const int N =1e6+5;
-using namespace std;
 int main()
 {
 	fr(".inp");
