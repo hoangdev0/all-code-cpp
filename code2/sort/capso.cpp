@@ -8,7 +8,8 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int n, a[N], d(0),s(1);
+int n, a[N],s(1);
+ll d(0);
 bool cm(int a, int b)
 {
 	return a > b;
@@ -28,7 +29,7 @@ int main()
 		else if (s > 1)
 		{
 			// s += s;
-			d += (int)s*(s-1)/2;
+			d += (ll)s*(s-1)/2;
 			s = 1;                                                                         
 		} 
 	}

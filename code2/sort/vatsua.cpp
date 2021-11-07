@@ -8,7 +8,8 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int n, a[N], s(0);
+int n, a[N];
+ll s(0);
 bool cm(int a, int b)
 {
 	return a > b;
@@ -23,9 +24,9 @@ int main()
 	sort(a, a + n, cm);
 	For(i, 0, n - 1, 1)
 	{
-		s += a[i] - i;
-		if (a[i] - i == 0)
+		if (a[i] - i <= 0)
 			break;
+		s += a[i] - i;
 	}
 	cout << s;
 	return 0;

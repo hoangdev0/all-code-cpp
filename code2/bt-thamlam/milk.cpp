@@ -8,28 +8,36 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
+int x, n,d(0);
+ll s(0);
+struct mk{
+	int x;
+	int y;
+};
+mk a[N];
+bool milk(mk a, mk b)
 {
-	return a > b;
+	return a.x < b.x;
 }
 int main()
 {
-	fr("tile.inp");
-	fw("tile.out");
+	fr("milk.inp");
+	fw("milk.out");
 
-	cin >> n;
-	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
-	int i(1);
-	while(i <= n)
+	cin >> x >> n;
+	For(i, 1, n, 1) cin >> a[i].x >> a[i].y;
+	sort(a + 1, a + n + 1,milk);
+	For(i,1,n,1)
 	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+		if(a[i].y >= x)
+		{
+			s+=(a[i].x * x);
+			break;
+		}else{
+			s += (a[i].x * a[i].y);
+			x -= a[i].y;
+		}
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
+	cout << s;
 	return 0;
 }

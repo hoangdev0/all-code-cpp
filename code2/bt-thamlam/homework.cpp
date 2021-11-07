@@ -8,28 +8,22 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
-{
-	return a > b;
-}
+int s, n, a[N],d(0);
 int main()
 {
-	fr("tile.inp");
-	fw("tile.out");
+	fr("homework.inp");
+	fw("homework.out");
 
-	cin >> n;
+	cin >> n >> s;
 	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
+	sort(a + 1, a + n + 1);
 	int i(1);
-	while(i <= n)
+	for (i; i <= n;i++)
 	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+		if(s>= a[i])
+			s += a[i];
+		else break;
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
+	cout << i-1;
 	return 0;
 }

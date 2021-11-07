@@ -7,29 +7,40 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
+const int N =1e6+5;
+int s, n;
+struct dr{
+	int a;
+	int b;
+};
+bool cm(dr a, dr b)
 {
-	return a > b;
+	return a.a < b.a;
 }
+dr a[N];
 int main()
 {
-	fr("tile.inp");
-	fw("tile.out");
+	fr("dragon.inp");
+	fw("dragon.out");
 
-	cin >> n;
-	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
+	cin >> s >> n;
+	For(i, 1, n, 1) cin >> a[i].a >> a[i].b;
+	sort(a + 1, a + n + 1, cm);
 	int i(1);
-	while(i <= n)
+	while(i<=n)
 	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+		if(s > a[i].a)
+			s += a[i].b;
+		else
+			break;
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
+	if(i>n)
+		i--;
+	if(n-i+1 > 0) 
+	{
+		cout << "NO" << endl;
+		cout << n-i+1;
+	}else
+		cout << "YES";
 	return 0;
 }

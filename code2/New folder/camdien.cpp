@@ -8,28 +8,51 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
+int n, a[N],m,d(0),s(0);
+bool cm(int a, int b)
 {
 	return a > b;
 }
 int main()
 {
-	fr("tile.inp");
-	fw("tile.out");
+	fr("camdien.inp");
+	fw("camdien.out");
 
-	cin >> n;
-	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
-	int i(1);
-	while(i <= n)
-	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+	cin >> n >> m;
+	if(m == 1)
+		cout << 1;
+	else{
+		For(i, 1, n, 1)
+		{
+			cin >> a[i];
+			s += a[i];
+		}
+		s = s - m + 1;
+		if ((s < 0))
+			cout << -1;
+		else if (s == 0)
+			cout << n;
+		else
+		{
+			sort(a + 1, a + n + 1, cm);
+			s = a[1];
+			if(s>=m)
+				cout << 1;
+			else{
+				d = 1;
+				For(i, 1, n, 1)
+				{
+					s += a[i] - 1;
+					d++;
+					if (s > m) 
+					{
+						cout << d;
+						break;
+					}
+				}
+			}
+			// cout << d;
+		}
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
 	return 0;
 }

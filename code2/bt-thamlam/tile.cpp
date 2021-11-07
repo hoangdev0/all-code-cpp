@@ -8,8 +8,8 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
+int s(N), n, a[N];
+bool tile(int a, int b)
 {
 	return a > b;
 }
@@ -20,16 +20,15 @@ int main()
 
 	cin >> n;
 	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
+	sort(a + 1, a + n + 1,tile);
 	int i(1);
-	while(i <= n)
+	for (i; i <= n; i++)
 	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+		s = min(s-1,a[i]);
+		if (s == 0)
+			break;
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
+	if(i>n) cout << n;
+	else cout << i;
 	return 0;
 }

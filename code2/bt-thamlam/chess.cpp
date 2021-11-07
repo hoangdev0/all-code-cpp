@@ -7,29 +7,33 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
+const int N = 1e2 + 5;
+int a[N], j(0), n, d(0), b[N];
+bool cm(int a, int b)
 {
 	return a > b;
 }
 int main()
 {
-	fr("tile.inp");
-	fw("tile.out");
-
+	fr("chess.inp");
+	fw("chess.out");
 	cin >> n;
-	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
-	int i(1);
-	while(i <= n)
+	For(i, 1, n, 1) cin >> a[i] >> b[i];
+	sort(b + 1, b + n + 1);
+	sort(a + 1, a + n + 1, cm);
+	for (int i = n; i >= 1;i--)
+		if (a[i] > b[n])
+		{
+			j = i;
+			break;
+		}
+	sort(a +j+ 1, a + n + 1);
+	For(i, 1, n, 1) 
 	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+		if(b[i]>a[i])
+			d += 2;
+		elf(b[i] == a[i]) d++;
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
+	cout << d;
 	return 0;
 }

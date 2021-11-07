@@ -9,7 +9,7 @@ typedef unsigned long long ll;
 // const int N =1e6+5;
 using namespace std;
 string s;
-ll resault(0),n;
+ll resault(1),n;
 int main()
 {
 	// fr(".inp");
@@ -18,7 +18,6 @@ int main()
 	cin >> s;
 
 	n = s.size() - 1;
-
 	For(i, 0, n, 1)
 		resault = resault * 2 + (int)(s[i] - 48);
 	cout << resault;

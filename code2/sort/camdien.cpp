@@ -7,8 +7,8 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e6 + 5;
-int n, a[N],m,d(0),s(0);
+const int N = 1e5 + 5;
+int n, a[N], m, d(0), s(0);
 bool cm(int a, int b)
 {
 	return a > b;
@@ -19,39 +19,25 @@ int main()
 	fw("camdien.out");
 
 	cin >> n >> m;
-	if(m == 1)
-		cout << 1;
-	else{
-		For(i, 1, n, 1)
+	For(i, 1, n, 1)
+	{
+		cin >> a[i];
+	}
+	sort(a + 1, a + n + 1, cm);
+	int i(1),s(a[1]);
+	while (i <= n)
+	{
+		if (s >= m)
 		{
-			cin >> a[i];
-			s += a[i];
+			cout << i;
+			return 0;
 		}
-		s = s - m + 1;
-		if ((s < 0))
-			cout << -1;
-		else if (s == 0)
-			cout << n;
-		else
+		s += a[i] - 1;
+		i++;
+		if (a[i] <= 1)
 		{
-			sort(a + 1, a + n + 1, cm);
-			s = a[1];
-			if(s>=m)
-				cout << 1;
-			else{
-				d = 1;
-				For(i, 1, n, 1)
-				{
-					s += a[i] - 1;
-					d++;
-					if (s > m) 
-					{
-						cout << d;
-						break;
-					}
-				}
-			}
-			// cout << d;
+			cout << -1;
+			return 0;
 		}
 	}
 	return 0;

@@ -7,29 +7,27 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e6 + 5;
-int n, k(N), m, a[N];
-bool c(int a, int b)
-{
-	return a > b;
-}
+const int N =1e6+5;
+int n, s(0),a[N],d(0);
 int main()
 {
-	fr("tile.inp");
-	fw("tile.out");
+	fr("taxi.inp");
+	fw("taxi.out");
 
 	cin >> n;
 	For(i, 1, n, 1) cin >> a[i];
-	sort(a + 1, a + n + 1,c);
-	int i(1);
-	while(i <= n)
+	sort(a + 1, a + n + 1);
+	For(i, 1, n, 1) 
 	{
-		k = min(a[i],k-1);
-		if(k == 0) break;
-		else i++;
+		s += a[i];
+		if ((s == 4) || (s + a[i + 1] >= 4))
+		{
+			d++;
+			s = 0;
+		}
+		// cout << s << endl;
 	}
-	if (i < n) cout << i;
-	else
-		cout << n;
+
+	cout << d;
 	return 0;
 }
