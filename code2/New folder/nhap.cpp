@@ -7,40 +7,26 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e6 + 5;
-int n, d(0), d1(0), d2(0), d3(0), x;
+// const int N =1e6+5;
 int main()
 {
-	fr("taxi.inp");
-	fw("taxi.out");
+	fr("nhap.inp");
+	fw("nhap.out");
 
-	cin >> n;
-	For(i, 1, n, 1)
+	int n,d(0),s(0),i(0);
+	while(cin >> n)
 	{
-		cin >> x;
-		if (x == 1)
-			d1++;
-		elf(x == 2) d2++;
-		elf(x == 3) d3++;
-		else d++;
+		if(n == 0)
+			break;
+		if(n%2!=0)
+		{
+			if(n%3!=0)
+				d++;
+		}
+		i++;
+		s += n;
 	}
-	d += d3;
-	if (d1 >= d3)
-		d1 -= d3;
-	else
-		d1 = 0;
-	if (d2 % 2 == 0)
-	{
-		d += (d2 / 2);
-		d2 -= (d2 / 2) * 2;
-	}
-	if (d2 > 0)
-		d1++;
-	if (d1 % 4 == 0)
-		d += (d1 / 4);
-	else
-		d += (d1 / 4) + 1;
-	cout << d;
-
+	cout << d << endl;
+	cout << n / i;
 	return 0;
 }
