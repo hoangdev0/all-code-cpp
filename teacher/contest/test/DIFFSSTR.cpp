@@ -22,7 +22,7 @@ int main()
 		k = true;
 		x = abs(n - i);
 		For(j, 0, x, 1)
-		{
+		{      
 			// s = s1;
 			d = s.find(s.substr(j, j + i), j + 1);
 			if(d != -1)
