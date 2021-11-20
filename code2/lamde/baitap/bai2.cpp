@@ -8,26 +8,36 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-string s, s1[N], x;
+int n, d, c, ma(0), k;
+string s, s1, res;
 int main()
 {
-	fr("cau3.inp");
-	fw("cau3.out");
+	fr("bai2.inp");
+	fw("bai2.out");
 
-	cin >> s;
-	int i(1);
-	while (i <= s.size())
+	cin >> s1 >> k;
+	// cin >> k;
+	For(i, 0, s1.size() - 1, 1) if (s1[i] >= '0' && s1[i] <= '9')
+		s += s1[i];
+
+	n = s.size();
+	d = 0;
+	c = k;
+
+	while (c != 0)
 	{
-		x = s.substr(0, i);
-		cout << x << endl;
-
-		for (int j = i; j < s.size(); j++)
+		int ma(0), v;
+		for (int i = d; i <= n - c; i++)
 		{
-			x += s[j];
-			x.erase(0, 1);
-			cout << x << endl;
+			if (ma < (s[i] - 48))
+			{
+				ma = (int)(s[i] - 48);
+				d = i + 1;
+			}
 		}
-		i++;
+		res += (char)(ma + 48);
+		c--;
 	}
+	cout << res << endl;
 	return 0;
 }

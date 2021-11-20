@@ -8,26 +8,43 @@
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-string s, s1[N], x;
+int n, a[N], x;
+ll s(0);
+struct sz{
+	int s;
+	int i;
+};
+bool cm(sz a,sz b)
+{
+	return (a.s < b.s||a.i<b.i);
+}
+
+void solve()
+{
+	sort(a + 1, a + n + 1, cm);
+	int ma(0),d(0),c(0);
+	for (int i = 1; i <= n;i++)
+	{
+		int r = binary_search(a + 1, a + n + 1, a[i].s);
+	}
+}
 int main()
 {
-	fr("cau3.inp");
-	fw("cau3.out");
+	fr("szero.inp");
+	fw("szero.out");
 
-	cin >> s;
-	int i(1);
-	while (i <= s.size())
+	cin >> n;
+	a[0] = 0;
+	for (int i = 1; i <= n; i++)
 	{
-		x = s.substr(0, i);
-		cout << x << endl;
-
-		for (int j = i; j < s.size(); j++)
-		{
-			x += s[j];
-			x.erase(0, 1);
-			cout << x << endl;
-		}
-		i++;
+		cin >> x;
+		a[i] = (a[i - 1] + x);
 	}
+	for (int i = 1; i <= n; i++)
+		cout << a[i] << " ";
+	cout << endl;
+
+	
+
 	return 0;
 }

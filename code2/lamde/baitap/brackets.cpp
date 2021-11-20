@@ -7,27 +7,37 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e6 + 5;
-string s, s1[N], x;
+// const int N =1e6+5;
+string s;
+int n, x, d(0);
+bool k = false;
 int main()
 {
-	fr("cau3.inp");
-	fw("cau3.out");
+	fr("brackets.inp");
+	fw("brackets.out");
 
-	cin >> s;
-	int i(1);
-	while (i <= s.size())
+	cin >> n;
+	for (int i = 1; i <= n; i++)
 	{
-		x = s.substr(0, i);
-		cout << x << endl;
-
-		for (int j = i; j < s.size(); j++)
+		cin >> x;
+		if (x > 0)
 		{
-			x += s[j];
-			x.erase(0, 1);
-			cout << x << endl;
+			d++;
+			s+='(';
+
 		}
-		i++;
+		else
+		{
+			if (d>0)
+			{
+				s += '(';
+				for (d; d >= 0; d--)
+					s += ')';
+				d = 0;
+			}
+			else s += "()";
+		}
 	}
+	cout << s;
 	return 0;
 }

@@ -1,0 +1,11 @@
+-=-=--=-=-=-=-=>> Chú thích folder <<==-=-=-=-=-=-=-=-=-
+1.	math - bài tập chủ đề toán học
+	(-) Từ 1 đến 100
+2.	repeat - bài tập chủ đề lặp
+	(-) Từ 101 đến 120
+3.	string - bài tập chủ đề kiểu dữ liệu chuỗi 
+	(-) Từ 121 đến 140
+4.	array - bài tập kiểu dữ liệu mảng 
+	(-) Từ 141 đến 200
+
+=-=-=-=-=--=-=-=-=-=>> 	Hết	 <<==-=-=-=-=-=-=-=-=-=-=-=-=
