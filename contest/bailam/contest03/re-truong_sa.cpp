@@ -9,7 +9,7 @@ using namespace std;
 typedef unsigned long long ll;
 const int N = 1e3 + 5;
 const int M = 1e9 + 5;
-int n,r;
+int n, r;
 float ma(-M), mi(M), k;
 struct dd
 {
@@ -29,16 +29,16 @@ int main()
 		ma = 0;
 		For(j, 1, n, 1)
 		{
-			k = sqrt(pow(a[j].x - a[i].x, 2) + pow(a[j].x - a[i].x, 2));
+			k = sqrt(pow(a[j].x - a[i].x, 2) + pow(a[j].y - a[i].y, 2));
 			ma = max(ma, k);
 		}
-		if(mi>ma)
+		if (mi > ma)
 		{
 			r = i;
 			mi = ma;
 		}
-
 	}
+
 	cout << a[r].x << " " << a[r].y;
 	return 0;
 }

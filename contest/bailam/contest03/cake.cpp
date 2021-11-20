@@ -26,15 +26,20 @@ int main()
 	fw("cake.out");
 
 	cin >> n >> s1;
+	if (n % 2 != 0)
+	{
+		cout << -1;
+		return 0;
+	}
 	s = s1 + s1;
 	x = (n / 2);
-	for (int i = 0; i < n-x; i++)
+	for (int i = 0; i < x; i++)
 	{
 		d = kt(i);
 		d1 = kt(i + x);
 		if (d == d1)
 		{
-			cout << ((i + 1) % n) << " " << ((i + x) % n) << endl;
+			cout << ((i + 1)) << " " << ((i + x)) << endl;
 		}
 	}
 	return 0;

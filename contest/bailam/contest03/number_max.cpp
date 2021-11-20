@@ -21,7 +21,6 @@ int main()
 		a[(int)(s[i] - 48)]++;
 	for (int i = 9; i >= 0;i--)
 		if(a[i]>0)
-		
 			while(a[i]>0)
 			{
 				cout << i;

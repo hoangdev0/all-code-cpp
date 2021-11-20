@@ -7,38 +7,38 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-const int N = 1e3 + 5;
-const int M = 1e9 + 5;
-int n, r;
-float ma(-M), mi(M), k;
-struct dd
+// const int N = 1e7 + 5;
+int n;
+string s = "0", x;
+long long res(0), m=1;
+void cov(int n)
 {
-	int x;
-	int y;
-};
-dd a[N];
+	x = "";
+	while(n>0)
+	{
+		x = (char)(n % 10 + 48) + x;
+		n /= 10;
+	}
+	s += x;
+}
+void sang()
+{
+	For(i, 1,50, 1) cov(i);
+}
+
 int main()
 {
-	fr("truong_sa.inp");
-	fw("truong_sa.out");
+	sang();
+	fr("chusothun.inp");
+	fw("chusothun.out");
 
 	cin >> n;
-	For(i, 1, n, 1) cin >> a[i].x >> a[i].y;
-	For(i, 1, n, 1)
+	// cout << (10000-10)/(12*60) << endl;
+	while(res<=n)
 	{
-		ma = 0;
-		For(j, 1, n, 1)
-		{
-			k = sqrt((float)(a[j].x - a[i].x) * (a[j].x - a[i].x) + (a[j].y - a[i].y)*(a[j].y - a[i].y));
-			ma = max(ma, k);
-		}
-		if (mi > ma)
-		{
-			r = i;
-			mi = ma;
-		}
+		res+=9*m*(int)pow(10,m-1);
+		m++;
 	}
-	cout << r << endl;
-	cout << a[r].x << " " << a[r].y;
+	cout << res;
 	return 0;
 }

@@ -8,7 +8,7 @@ int main()
         int y;
     };
     td a[1005];
-    int n,kc = 0,vt = 0;;
+    int n,kc = 0,vt = 0;
     cin >> n;
     float m =0,mx[1006];
     for(int i = 1;i <= n; i++)
