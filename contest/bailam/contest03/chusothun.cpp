@@ -9,36 +9,42 @@ using namespace std;
 typedef unsigned long long ll;
 // const int N = 1e7 + 5;
 int n;
-string s = "0", x;
-long long res(0), m=1;
-void cov(int n)
+void res(int n)
 {
-	x = "";
-	while(n>0)
+	int t(0),m(0),x,ans,n1;
+	ll c(0),a(1), d(1);
+	while (c <= n)
 	{
-		x = (char)(n % 10 + 48) + x;
-		n /= 10;
+		t = c;
+		c += (int)9 * (m + 1) * pow(10, m);
+		m++;
 	}
-	s += x;
+	for (int i = 1; i < m; i++)
+		d *= 10;
+	a = d + ceil((double)(n - t - m) / m);
+	n1 = m * (a - 1 - d) + (m + t);
+	x = m + 1 - (n - n1);
+	while (x > 0)
+	{
+		ans = a % 10;
+		x--;
+		a /= 10;
+	}
+	cout << ans << endl;
 }
-void sang()
-{
-	For(i, 1,50, 1) cov(i);
-}
-
 int main()
 {
-	sang();
+	// sang();
 	fr("chusothun.inp");
 	fw("chusothun.out");
 
-	cin >> n;
-	// cout << (10000-10)/(12*60) << endl;
-	while(res<=n)
+	while (cin >> n)
 	{
-		res+=9*m*(int)pow(10,m-1);
-		m++;
+		if(n<10)
+			cout << n << endl;
+		else
+			res(n);
 	}
-	cout << res;
+	
 	return 0;
 }
