@@ -7,37 +7,36 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N =1e6+5;
-string s;
-int n, x, d(0);
-bool k = false;
+const int N = 1e6 + 5;
+string s, x;
+int a[N], n;
+void addbra()
+{
+	s = "()" + s;
+}
+void addbra1(int p)
+{
+	s.insert(p, ")");
+	s = '(' + s;
+}
 int main()
 {
 	fr("brackets.inp");
 	fw("brackets.out");
 
 	cin >> n;
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> x;
-		if (x > 0)
-		{
-			d++;
-			s+='(';
 
-		}
+	for (int i = 1; i <= n; i++)
+		cin >> a[i];
+	for (int i = n; i >= 1; i--)
+	{
+		if (a[i] == 0)
+			addbra();
 		else
-		{
-			if (d>0)
-			{
-				s += '(';
-				for (d; d >= 0; d--)
-					s += ')';
-				d = 0;
-			}
-			else s += "()";
-		}
+			addbra1(a[i]);
+		// cout << s << endl;
 	}
-	cout << s;
+		cout << s << endl;
+
 	return 0;
 }

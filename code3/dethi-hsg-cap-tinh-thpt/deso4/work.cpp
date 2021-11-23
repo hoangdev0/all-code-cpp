@@ -3,33 +3,29 @@
 #define fw(name) freopen(name, "w", stdout);
 #define For(value, begin, end, up) for (int value = begin; value <= end; value += up)
 // #define Forc(value, begin, end, up) for (int value = begin; value * value <= end; value += up)
+// #define Fort(value, begin, end, up) for (int value = begin; value >= end; value -= up)
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
 const int N = 1e6 + 5;
-int a[N], res,i[N],j[N],k[N],n;
+int n, t[N], p[N], a[N];
 int main()
 {
-	fr("bo3so.inp");
-	fw("bo3so.out");
+	fr("work.inp");
+	fw("work.out");
 
 	cin >> n;
+	For(i, 1, n, 1)
+			cin >>
+		t[i];
+	For(i, 2, n, 1)
+			cin >>
+		p[i];
+	a[1] = t[1];
+	For(i, 2, n, 1)
+		a[i] = min(a[i - 2] + p[i], a[i - 1] + t[i]);
 
-	for (int x = 1; x <= n; x++) cin >> a[x];
-
-	i[1] = a[1];
-	for (int x = 2; x < n-1;x++)
-		i[x] = max(i[x - 1], a[x]);
-
-	j[2] = i[1] + 2 * a[2];
-	for (int x = 3; x < n;x++)
-		j[x] = max((j[x - 1]), (i[x-1] + 2 * a[x]));
-
-	k[3] = j[2] + 3 * a[3];
-	for (int x = 4; x <= n;x++)
-		k[x] = max(k[x - 1], j[x-1] + 3 * a[x]);
-	// hoang an cut
-	cout << k[n];
+	cout << a[n];
 
 	return 0;
 }

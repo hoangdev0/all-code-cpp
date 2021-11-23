@@ -11,10 +11,6 @@
 #include <time.h>
 #include <windows.h>
 using namespace std;
-void delay(int s)
-{
-    for(int j = 1; j <= (s*10000000);j++){if(j<-1);};
-}
 void loading()
 {
     char a=178,b=219;
@@ -35,7 +31,7 @@ void loading()
 }
 int main()
 {
-    system("color fc");
+    system("color c");
     system("pause");
     loading();
     //system("color 0");
@@ -49,7 +45,7 @@ int main()
         else cout<<"Bạn đã đăng nhập thành công!" << endl; 
     }while(pa !="hoangyeuvy1505");
 
-    Sleep(800);
+    Sleep(400);
     for(int i=20;i<=100;i+=20)
     {
         cout << "\tĐang tải vui lòng đợi.... "<<i<<"%\n";
@@ -59,7 +55,7 @@ int main()
     for(int i=5;i>=0;i--)
     {
         cout << "Vui lòng đợi trong "<<i<<" s";
-        Sleep(900);
+        Sleep(300);
         system("cls");
     }
     system("color 0f");
@@ -67,7 +63,7 @@ int main()
     f.open("vy.txt",ios::in);
     string s;
     string d;
-    Sleep(20);
+    Sleep(200);
     while(!f.eof())
     {
         getline(f,s);

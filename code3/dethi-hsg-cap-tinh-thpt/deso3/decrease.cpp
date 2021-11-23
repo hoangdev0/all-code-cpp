@@ -7,37 +7,34 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N = 1e7 + 5;
-int n;
-void res(int n)
+// const int N =1e6+5;
+int n, d(0), res;
+int maxNum(int n)
 {
-	int t(0), m(0), x, ans, n1, c(0), a(1), d(1);
-	while (c <= n)
+	int ma = 0;
+	while(n>0)
 	{
-		t = c;
-		c += (int)9 * (m + 1) * pow(10, m);
-		m++;
+		ma = max((n % 10), ma);
+		n /= 10;
 	}
-
-	d = pow(10,m-1)+  ((n - t + 1) / (m-1));
-	cout << d << " ";
-	// d += pow(10, m - 1);
-	// cout << d << endl;
-	// if(d%m == 0) cout <<
+	return ma;
 }
 int main()
 {
-	// sang();
-	fr("chusothun.inp");
-	fw("chusothun.out");
+	fw("decrease.inp");
+	cout << "27";
+	fr("decrease.inp");
+	fw("decrease.out");
 
-	while (cin >> n)
+	cin >> n;
+
+	while(n != 0)
 	{
-		if (n < 10)
-			cout << n << endl;
-		else
-			res(n);
+		n -= maxNum(n);
+		d++;
 	}
+
+	cout << d;
 
 	return 0;
 }

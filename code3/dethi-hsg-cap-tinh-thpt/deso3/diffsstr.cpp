@@ -8,14 +8,47 @@
 using namespace std;
 typedef unsigned long long ll;
 // const int N =1e6+5;
-int n, x;
+int n;
+string s, x;
+bool check(int i)
+{
+
+	int k = 1;
+	string t = s.substr(0, i);
+	if (s.find(t, k) != -1)
+		return false;
+	for (int j = i + 1; j <= n; j++)
+	{
+		t += s[j];
+		t.erase(0, 1);
+		if (s.find(t, k) != -1)
+			return false;
+		k++;
+	}
+	return true;
+}
+void raphael()
+{
+	int l = 1, r = n,res;
+	while(l<=r)
+	{
+		int g = (r + l) / 2;
+		if(check(g))
+		{
+			res = g;
+			r = g - 1;
+		}else
+			l = g + 1;
+	}
+	cout << res;
+}
 int main()
 {
-	fr("vat.inp");
-	fw("vat.out");
+	fr("diffsstr.inp");
+	fw("diffsstr.out");
 
-	cin >> n;
-	cout << fixed << setprecision(2) << ((float)n / 1.1) << " " << (n - (n / 1.1));
+	cin >> n >> s;
+	raphael();
 
 	return 0;
 }

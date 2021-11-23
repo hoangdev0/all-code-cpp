@@ -7,37 +7,32 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N = 1e7 + 5;
-int n;
-void res(int n)
-{
-	int t(0), m(0), x, ans, n1, c(0), a(1), d(1);
-	while (c <= n)
-	{
-		t = c;
-		c += (int)9 * (m + 1) * pow(10, m);
-		m++;
-	}
-
-	d = pow(10,m-1)+  ((n - t + 1) / (m-1));
-	cout << d << " ";
-	// d += pow(10, m - 1);
-	// cout << d << endl;
-	// if(d%m == 0) cout <<
-}
+const int N = 1e4 + 5;
+int a[N][N];
+int n, x, res(0), k;
 int main()
 {
-	// sang();
-	fr("chusothun.inp");
-	fw("chusothun.out");
+	fr("cau3.inp");
+	fw("cau3.out");
 
-	while (cin >> n)
+	cin >> n >> k;
+	for (int i = 1; i <= n; i++)
 	{
-		if (n < 10)
-			cout << n << endl;
-		else
-			res(n);
+		for (int j = 1; j <= n; j++)
+		{
+			cin >> x;
+			a[i][j] = a[i][j - 1] + a[i - 1][j] - a[i - 1][j - 1] + x;
+		}
 	}
+	for (int i = 1; i <= (n - k + 1); i++)
+		for (int j = 1; j <= (n - k + 1); j++)
+		{
+			int u = i + k - 1, v = j + k - 1;
+			int s = a[u][v] - a[i-1][v] - a[u][j - 1] + a[i - 1][j - 1];
+			res = max(res, s);
+		}
+
+	cout << res;
 
 	return 0;
 }
