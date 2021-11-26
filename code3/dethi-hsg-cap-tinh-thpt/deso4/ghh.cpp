@@ -7,15 +7,41 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N =1e6+5;
-int n, x;
+const int N = 1e6 + 5;
+int a[N], n,x,d(0);
+int k(int n)
+{
+	int s = n + 1,i(2);
+	for (i; i*i < n;i++)
+	{
+		if(n%i==0)
+			s += i + (n / i);
+	}
+	if (i * i == n)
+		s += i;
+	return s;
+}
+bool kt(int n)
+{
+	if(2*n<=k(n))
+		return true;
+	return false;
+}
 int main()
 {
-	fr("vat.inp");
-	fw("vat.out");
+	fr("ghh.inp");
+	fw("ghh.out");
 
 	cin >> n;
-	cout << fixed << setprecision(2) << ((float)n / 1.1) << " " << (n - (n / 1.1));
-
+	while(n--){
+		cin >> x;
+		if(kt(x))
+			a[d++] = x;
+		
+	}
+	cout << d << endl;
+	while(d--)
+	cout << a[d] << endl;
+	
 	return 0;
 }

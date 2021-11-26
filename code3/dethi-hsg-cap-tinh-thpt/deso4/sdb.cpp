@@ -8,18 +8,33 @@
 using namespace std;
 typedef unsigned long long ll;
 // const int N =1e6+5;
-int t, n;
+string s, x,r;
+int n;
 int main()
 {
-	fr("bai2.inp");
-	fw("bai2.out");
+	fr("sdb.inp");
+	fw("sdb.out");
 
-	cin >> t;
-	For(i, 1, t, 1)
+	cin >> n;
+	while (n--)
 	{
-		cin >> n;
-		cout << (7 - n) << endl;
+		cin >> x;
+		s = s + '\n' + x;
 	}
-
+	s.erase(0, 1);
+	int i = 0, l = s.size(),d(0);
+	
+	x = s.substr(i, s.find(' ',i+1) - 1);
+	if(s.find(x, i + 1)==-1);
+	{
+		r += '\n' + x;
+		d++;
+	}
+	for (int i = 1; i <= n;i++)
+	{
+		
+	}
+		cout << s.size() / 2 << endl;
+	cout << s;
 	return 0;
 }

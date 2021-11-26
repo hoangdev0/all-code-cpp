@@ -7,19 +7,41 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N =1e6+5;
-int t, n;
+const int N = 1e6 + 5;
+int n, s[N], x, sm(-N), smin(N), smax(-N), d(0);
 int main()
 {
-	fr("bai2.inp");
-	fw("bai2.out");
+	fr("subseq.inp");
+	fw("subseq.out");
 
-	cin >> t;
-	For(i, 1, t, 1)
+	cin >> n;
+	s[0] = 0;
+	for (int i = 1; i <= n; i++)
 	{
-		cin >> n;
-		cout << (7 - n) << endl;
+		cin >> x;
+
+		s[i] = s[i - 1] + x;
+
+		if (x < 0)
+		{
+			d++;
+			sm = max(sm, x);
+		}
+		if (s[i] < 0)
+			s[i] = 0;
+	}
+	if (d == n)
+	{
+		cout << sm;
+		return 0;
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		smin = min(s[i], smin);
+		smax = max(smax, s[i] - smin);
+		// cout << s[i] << " " << smax << " " << smin << endl;
 	}
 
+	cout << smax;
 	return 0;
 }

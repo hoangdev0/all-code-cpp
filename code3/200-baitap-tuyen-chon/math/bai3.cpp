@@ -7,18 +7,18 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N =1e6+5;
-int t, n;
+const int N =1e6+5;
+int n,a,b,x,t;
 int main()
 {
-	fr("bai2.inp");
-	fw("bai2.out");
+	fr("bai3.inp");
+	fw("bai3.out");
 
-	cin >> t;
-	For(i, 1, t, 1)
+	cin>>t;
+	For(i,1,t,1)
 	{
-		cin >> n;
-		cout << (7 - n) << endl;
+		cin >> n >> x;
+		cout << (x + 10 * (n - 1) - (x * n)) << endl;
 	}
 
 	return 0;

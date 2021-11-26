@@ -7,12 +7,14 @@
 #define elf else if
 using namespace std;
 typedef unsigned long long ll;
-// const int N =1e6+5;
+const int N =1e6+5;
+int a[N], n, t[N], x;
 int main()
 {
 	fr("revnrev.inp");
 	fw("revnrev.out");
 
-	cin >> n >> 
+	cin >> n >> t;
+	for(int i = 1)
 	return 0;
 }

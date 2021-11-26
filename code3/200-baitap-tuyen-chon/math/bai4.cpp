@@ -8,18 +8,27 @@
 using namespace std;
 typedef unsigned long long ll;
 // const int N =1e6+5;
-int t, n;
+int t;
+ll n;
 int main()
 {
-	fr("bai2.inp");
-	fw("bai2.out");
+	fr("bai4.inp");
+	fw("bai4.out");
 
 	cin >> t;
-	For(i, 1, t, 1)
+	for (int i = 1;i<=t;i++)
 	{
 		cin >> n;
-		cout << (7 - n) << endl;
+		int d = 0;
+		while(n>0)
+		{
+			d += (n % 2);
+			n /= 2;
+		}	
+		if(d%2)
+			cout << "odd" << endl;
+		else
+			cout << "even"<<endl;
 	}
-
-	return 0;
+		return 0;
 }
