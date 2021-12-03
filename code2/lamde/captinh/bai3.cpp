@@ -17,7 +17,7 @@ void solve()
 	for (int i = 1; i < b;i++)
 	{
 		int l = lower_bound(ha + 1, ha + a, hb[i]+1)-ha;
-		cout << hb[i]+x << " "<< ha[l] << l << endl;
+		cout << ha[l] << endl;
 		if(hb[i]+x > ha[l]) continue;
 		int r = upper_bound(ha + 1, ha + a, hb[i] + x) - ha - 1;
 		res += (r - l + 1);
